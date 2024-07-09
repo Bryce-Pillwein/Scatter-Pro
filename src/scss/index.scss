@@ -1,0 +1,36 @@
+/*  ##################################################
+                Global/Main SCSS Styling
+    ################################################## */
+
+/*
+  ||  Import Style Files
+*/
+@import '_reset';
+@import '_theme';
+
+/*
+  || Apply Dark Theme by Default
+*/
+:root {
+  color-scheme: dark;
+}
+
+/*
+  || Apply Scroll bar settings
+*/
+* {
+  scrollbar-gutter: stable;
+}
+
+
+/*
+  || Container and Wrappers
+*/
+.app-container {
+  // --max-width: 1600px;
+  // --padding: 1rem;
+  // width: min(var(--max-width), 100% - (var(--padding) * 2));
+
+  width: 97%;
+  margin-inline: auto;
+}
