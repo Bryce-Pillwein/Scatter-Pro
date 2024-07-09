@@ -8,10 +8,8 @@ import ScatterPlot from "@/components/graphs/ScatterPlot";
 import Modal from "@/components/modal/Modal";
 import { Data } from "@/types/Data";
 import { handleFileUpload } from "@/services/utils/handleFileUpload";
-import { render } from "react-dom";
 
 Chart.register(...registerables);
-// Chart.defaults.borderColor = '#36A2EB';
 Chart.defaults.color = 'rgb(150, 150, 150)';
 
 export default function Home() {
