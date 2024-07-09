@@ -90,9 +90,12 @@ export default function Home() {
           <div id="variableColumn" className="sticky top-2 h-full col-span-3 border-neutral-800 border px-4 py-2 rounded-lg bg-neutral-800 overflow-y-scroll no-scrollbar">
             <p className="text-center text-xl">Variables</p>
 
-            <input type="text" placeholder="Search.." onChange={(e) => handleSearchChange(e.target.value)}
-              className="w-full  px-4 py-1 rounded-lg text-neutral-50 border-none outline-none"
-              style={{ backgroundColor: 'hsl(0 0% 18%)' }} />
+            <div className="flex justify-between">
+              <input type="text" placeholder="Search.." onChange={(e) => handleSearchChange(e.target.value)}
+                className="px-4 py-1 rounded-lg text-neutral-50 border-none outline-none"
+                style={{ backgroundColor: 'hsl(0 0% 18%)' }} />
+              <button onClick={() => { setIVs([]) }}>Clear All</button>
+            </div>
 
 
             {renderedVariables.map((col: any) => (
