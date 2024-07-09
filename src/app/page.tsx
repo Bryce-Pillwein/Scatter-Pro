@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Chart, registerables } from "chart.js/auto";
 
 import Header from "@/components/layout/Header";
