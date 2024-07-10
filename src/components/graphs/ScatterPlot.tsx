@@ -13,7 +13,7 @@ const ScatterPlot: React.FC<ScatterPlotProps> = ({ DV, IV, data }) => {
       {
         label: `${IV}`,
         data: data,
-        backgroundColor: 'rgba(20, 147, 230, 1)',
+        backgroundColor: 'rgba(20, 147, 162, 1)',
       },
     ],
   };
