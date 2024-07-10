@@ -6,7 +6,6 @@
   ||  Import Style Files
 */
 @import '_reset';
-@import '_theme';
 
 /*
   || Apply Dark Theme by Default
@@ -31,6 +30,19 @@
   // --padding: 1rem;
   // width: min(var(--max-width), 100% - (var(--padding) * 2));
 
-  width: 97%;
+  width: 100%;
   margin-inline: auto;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 }
