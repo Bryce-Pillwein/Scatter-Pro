@@ -15,8 +15,8 @@ const Header: React.FC<HeaderProps> = ({ onFileUpload, onOpenModal, selectedDV }
       <section className="flex justify-between items-center">
 
         <div className="flex items-center" >
-          {/* <Image className="mr-8" src="/logo.png" alt="Website-logo" width={40} height={40} /> */}
-          <h1 id="page-title" className="text-2xl font-bold text-center">Graph Correlations</h1>
+          <Image className="mr-8 rounded-3xl" src="/plotpro-small.jpg" alt="Website-logo" width={50} height={50} />
+          <h1 id="page-title" className="text-2xl font-bold text-center">Plot Pro</h1>
         </div>
 
         <div className="flex gap-4">
