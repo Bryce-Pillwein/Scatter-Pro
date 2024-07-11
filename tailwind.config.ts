@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {
@@ -21,6 +22,15 @@ const config: Config = {
           l20: 'hsl(0, 0%, 20%)',
           l25: 'hsl(0, 0%, 20%)',
           l30: 'hsl(0, 0%, 20%)',
+
+          l97: 'hsl(0 0% 97%)',
+          l95: 'hsl(0 0% 95%)',
+          l92: 'hsl(0 0% 92%)',
+          l90: 'hsl(0 0% 90%)',
+          l85: 'hsl(0 0% 85%)',
+          l80: 'hsl(0 0% 80%)',
+          l70: 'hsl(0 0% 70%)',
+          l60: 'hsl(0 0% 60%)',
         },
         geotech: {
           orange: 'rgb(243, 122, 55)',

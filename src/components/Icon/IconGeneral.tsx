@@ -1,11 +1,21 @@
 // Icon General 
 interface IconGeneralProps {
   type: string;
+  darkMode: boolean;
   fill?: string;
   size?: number;
 }
 
-const IconGeneral: React.FC<IconGeneralProps> = ({ type, fill = 'hsl(0 0% 70%)', size = 24 }) => {
+const IconGeneral: React.FC<IconGeneralProps> = ({ type, darkMode, fill, size = 24 }) => {
+  const getFillColor = () => {
+    if (!fill) {
+      if (darkMode) return 'hsl(0 0% 70%)';
+      else return 'hsl(0 0% 30%)';
+    } else {
+      return fill;
+    }
+  };
+
 
   const getSvgContent = () => {
     switch (type) {
@@ -36,9 +46,10 @@ const IconGeneral: React.FC<IconGeneralProps> = ({ type, fill = 'hsl(0 0% 70%)',
   }
 
   const svgContent = getSvgContent();
+  const fillColor = getFillColor();
 
   return (
-    <svg viewBox="0 -960 960 960" width={size} height={size} fill={fill}>
+    <svg viewBox="0 -960 960 960" width={size} height={size} fill={fillColor}>
       <path d={svgContent} />
     </svg>
   );

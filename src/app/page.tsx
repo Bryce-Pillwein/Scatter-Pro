@@ -11,8 +11,8 @@ import { handleFileUpload } from "@/services/utils/handleFileUpload";
 import IconGeneral from "@/components/Icon/IconGeneral";
 
 Chart.register(...registerables);
-Chart.defaults.color = 'rgb(200, 200, 200)';
-Chart.defaults.borderColor = 'rgb(50, 50, 50)';
+// Chart.defaults.color = 'rgb(200, 200, 200)';
+// Chart.defaults.borderColor = 'rgb(50, 50, 50)';
 
 export default function Home() {
   const [data, setData] = useState<Data[]>([]);
@@ -22,6 +22,8 @@ export default function Home() {
   const [DV, setDV] = useState<string | null>(null);
   const [IVs, setIVs] = useState<string[]>([]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState(true);
+
 
   useEffect(() => {
     const header = document.getElementById("headerWrapper");
@@ -35,6 +37,28 @@ export default function Home() {
       main.style.maxHeight = calculatedHeight;
     }
   }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
+
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (darkMode) {
+      Chart.defaults.color = 'rgb(50, 50, 50)';
+      Chart.defaults.borderColor = 'rgb(200, 200, 200)';
+    } else {
+      Chart.defaults.color = 'rgb(200, 200, 200)';
+      Chart.defaults.borderColor = 'rgb(50, 50, 50)';
+    }
+  };
 
   useEffect(() => {
     setRenderedVariables(variables);
@@ -79,10 +103,18 @@ export default function Home() {
     }
   };
 
+  const getBackgroundColor = (col: any) => {
+    if (IVs.includes(col)) {
+      return darkMode ? 'hsl(0 0% 25%)' : 'hsl(0 0% 70%)';
+    } else {
+      return darkMode ? 'hsl(0 0% 18%)' : 'hsl(0 0% 90%)';
+    }
+  };
+
   return (
-    <div className="h-screen pl-8">
+    <div className="h-screen pl-8 dark:bg-d bg-d-l97">
       <div id="headerWrapper">
-        <Header onFileUpload={handleUpload} onOpenModal={() => setIsModalOpen(true)} selectedDV={DV} />
+        <Header onFileUpload={handleUpload} onOpenModal={() => setIsModalOpen(true)} toggleDarkMode={() => toggleDarkMode()} selectedDV={DV} />
       </div>
       <main id="main" className="app-container grid grid-cols-11 gap-8">
 
@@ -101,10 +133,10 @@ export default function Home() {
 
           <div className="flex justify-between items-center gap-8">
             <input type="text" placeholder="Search.." onChange={(e) => handleSearchChange(e.target.value)}
-              className="px-4 py-1 rounded-lg text-neutral-50 border-none outline-none placeholder-neutral-100 flex-auto bg-d-l18" />
+              className="inputField" />
             <div className="flex gap-4 items-center justify-center">
-              <button onClick={() => toggleActiveVariables()}> <IconGeneral type="filter" /> </button>
-              <button onClick={() => { setIVs([]) }}> <IconGeneral type='delete' /> </button>
+              <button onClick={() => toggleActiveVariables()} className="btn"> <IconGeneral darkMode={darkMode} type="filter" /> </button>
+              <button onClick={() => { setIVs([]) }} className="btn"> <IconGeneral darkMode={darkMode} type='delete' /> </button>
             </div>
           </div>
 
@@ -114,11 +146,11 @@ export default function Home() {
                 <p className="text-sm">{col}</p>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => toggleIV(col)} className="px-1 py-1"
-                    style={{ backgroundColor: IVs.includes(col) ? 'hsl(0 0% 50%)' : '' }}>
+                    onClick={() => toggleIV(col)} className="px-1 py-1 rounded-md"
+                    style={{ backgroundColor: getBackgroundColor(col) }}>
                     {IVs.includes(col) ?
-                      <IconGeneral type='minus' size={20} /> :
-                      <IconGeneral type='add' size={20} />
+                      <IconGeneral darkMode={darkMode} type='minus' size={20} /> :
+                      <IconGeneral darkMode={darkMode} type='add' size={20} />
                     }
                   </button>
                 </div>
@@ -131,7 +163,7 @@ export default function Home() {
         <div className="col-span-8 h-full overflow-y-scroll">
           <div className="grid grid-cols-2 gap-x-8 gap-y-8">
             {IVs.map(iv => (
-              <ScatterPlot key={iv} DV={DV!} IV={iv} data={data.map(item => ({ x: item[DV!], y: item[iv] }))} />
+              <ScatterPlot key={iv} DV={DV!} IV={iv} data={data.map(item => ({ x: item[DV!], y: item[iv] }))} darkMode={darkMode} />
             ))}
           </div>
 

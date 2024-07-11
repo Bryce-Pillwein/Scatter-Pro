@@ -25,9 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 
-  color: hsl(0 0% 95%);
-  background-color: hsl(0 0% 13%);
-
+  /* color: hsl(0 0% 95%);
+  background-color: hsl(0 0% 13%); */
 }
 
 @layer utilities {
@@ -43,35 +42,77 @@ body {
   /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
+  }
+
+  .btn {
+    cursor: pointer;
+    padding: 0.2rem 1rem;
+    background-color: hsl(0 0% 85%);
+    border-radius: 0.5rem;
+  }
+
+  .btn:hover {
+    background-color: hsl(0 0% 70%);
+  }
+
+  .dark .btn {
+    background-color: hsl(0 0% 18%);
+  }
+
+  .dark .btn:hover {
+    background-color: hsl(0 0% 22%);
+  }
+
+  /* INPUT FIELD SEARCH BAR */
+  .inputField {
+    outline: none;
+    border: none;
+    color: hsl(0 0% 13%);
+    padding: 0.2rem 1rem;
+    border-radius: .5rem;
+    flex: 1 1 auto;
+    background-color: hsl(0 0% 85%);
+  }
+
+  .inputField::placeholder {
+    color: hsl(0 0% 13%);
+  }
+
+  .dark .inputField {
+    background-color: hsl(0 0% 18%);
+  }
+
+  .dark .inputField::placeholder {
+    color: hsl(0 0% 70%);
+  }
+
+  /* INPUT FILE BUTTON */
+  .inputFile::file-selector-button {
+    border: none;
+    outline: none;
+    padding: 0.2rem 1rem;
+    border-radius: .2rem;
+    font-size: 16px;
+    width: min-content;
+    background-color: hsl(0 0% 80%);
+    color: hsl(0 0% 5%);
+  }
+
+  .inputFile::file-selector-button:hover {
+    background-color: hsl(0 0% 70%);
+  }
+
+  .dark .inputFile::file-selector-button {
+    background-color: hsl(0 0% 18%);
+    color: hsl(0 0% 95%);
   }
 }
 
-input[type=file]::file-selector-button {
-  border: none;
-  outline: none;
-  padding: 0.2rem 1rem;
-  border-radius: .2rem;
-  background-color: hsl(0 0% 18%);
-  font-size: 16px;
-  width: min-content;
-  color: hsl(0 0% 95%)
+body {
+  color: hsl(0 0% 5%);
 }
 
-input[type=file]::file-selector-button:hover {
-  background-color: hsl(0 0% 22%);
-}
-
-
-button {
-  cursor: pointer;
-  padding: 0.2rem 1rem;
-  background-color: hsl(0 0% 18%);
-  border-radius: 0.5rem;
-}
-
-button:hover {
-  background-color: hsl(0 0% 22%);
+.dark body {
+  color: hsl(0 0% 95%);
 }
