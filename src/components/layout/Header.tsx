@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ChangeEventHandler, useState } from "react";
+import IconGeneral from "../Icon/IconGeneral";
 
 interface HeaderProps {
   onFileUpload: ChangeEventHandler<HTMLInputElement>
@@ -29,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ onFileUpload, onOpenModal, toggleDarkMo
               className="cursor-pointer inputFile" />
           </div>
           <button className="btn" onClick={toggleDarkMode}>
-            DarkMode
+            <IconGeneral type="dark-mode" darkMode={true} fill="hsl(0 0% 50%)" />
           </button>
         </div>
 
