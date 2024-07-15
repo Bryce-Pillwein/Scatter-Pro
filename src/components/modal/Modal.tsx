@@ -20,10 +20,10 @@ const Modal: React.FC<ModalProps> = ({ variables, onSelect, onClose }) => {
 
   return ReactDOM.createPortal(
     <div className="fixed top-0 inset-0 flex items-center justify-center bg-neutral-950 bg-opacity-50 z-50">
-      <div className=" p-6 rounded-md w-1/3 max-h-[85vh] overflow-y-auto " style={{ backgroundColor: 'hsl(0, 0%, 13%)' }}>
+      <div className=" p-6 rounded-md w-1/3 max-h-[85vh] overflow-y-auto dark:bg-d bg-d-l97" >
         <div className="flex justify-between items-center">
           <h2 className="text-m py-6 text-center">Select Dependent Variable</h2>
-          <button onClick={onClose} className="px-3 py-1 bg-neutral-800 text-white rounded-md hover:bg-slate-800" >Cancel</button>
+          <button onClick={onClose} className="px-3 py-1  text-white rounded-md  btn" >Cancel</button>
         </div>
         <div className="mb-4">
           {variables.map((variable) => (

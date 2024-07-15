@@ -7,8 +7,8 @@ import "@/scss/index.scss"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Plot Pro",
-  description: "Scatter Plot Graph Correlator",
+  title: "Scatter Pro",
+  description: "Scatter Plot Graph Creator",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
